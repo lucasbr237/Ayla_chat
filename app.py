@@ -65,7 +65,7 @@ def handle_text(message):
 def handle_photo_message(message):
     photo.handle_photo(bot, message)
 
-Função principal para iniciar o bot
+#Função principal para iniciar o bot
 def start_bot():
     bot.polling()
 
