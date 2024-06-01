@@ -65,7 +65,7 @@ def handle_text(message):
 def handle_photo_message(message):
     photo.handle_photo(bot, message)
 
-# Inicia o bot
+# Inicia o botX
 if __name__ == "__main__":
     bot.polling()
 
