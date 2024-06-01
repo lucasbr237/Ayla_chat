@@ -68,3 +68,6 @@ def handle_photo_message(message):
 # Inicia o bot
 if __name__ == "__main__":
     bot.polling()
+
+#Exponha a função para o Gunicorn
+app = start_polling
