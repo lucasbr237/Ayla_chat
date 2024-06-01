@@ -65,12 +65,12 @@ def handle_text(message):
 def handle_photo_message(message):
     photo.handle_photo(bot, message)
 
-#Função principal para iniciar o bot
+#Função principal para iniciar o bo
 def start_bot():
     bot.polling()
 
+# Inicia o bot
+start_bot()
+
 # Expor a função para o Gunicorn
 app = start_bot
-
-if __name__ == "__main__":
-    start_bot()
