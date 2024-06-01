@@ -70,4 +70,4 @@ if __name__ == "__main__":
     bot.polling()
 
 #Exponha a função para o Gunicorn
-app = start_polling
+app = handle_message
