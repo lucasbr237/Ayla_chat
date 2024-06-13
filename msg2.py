@@ -32,16 +32,16 @@ def processar_mensagem_padrao(user_input):
 
         # Enviar requisição ao modelo
         result = client.predict(
-            message=user_input['message'],
-            request=complete_request,
-            param_3=512,
-            param_4=0.5,
-            param_5=0.95,
+            message=user_input,
+            system_message=complete_request,
+            max_tokens=512,
+            temperature=0.7,
+            top_p=0.95,
             api_name="/chat"
         )
 
         return result
-        
+
 # Função para simular a ação de digitação
 def send_typing_action(chat_id):
     bot.send_chat_action(chat_id=chat_id, action='typing')
