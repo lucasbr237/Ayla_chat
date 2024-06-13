@@ -1,41 +1,28 @@
 from bot_instance import bot
-from gradio_client import Client 
+import photo
 import requests
 import re
 import time
+import telebot
+import os
+import json
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-import photo
-from youtube import get_video_info
 from msg2 import processar_mensagem_padrao
 
-def send_menu_message(chat_id):
-    menu_message = (
-        "\n━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "🧾 **Atualização: 27-05-2024**\n\n"
-        "**Novidades:**\n\n"
-        "📖 **Comportamento aprimorado**\n"
-        "   - Respostas mais precisas e naturais\n\n"
-        "🚀 **Resposta de API mais rápida**\n"
-        "   - Menor tempo de resposta\n\n"
-        "🖼️ **Capacidade de descrever imagens**\n"
-        "   - Descrições de imagens enviadas\n\n"
-        "▶️ **Capacidade de resumir vídeos do YouTube**\n"
-        "   - Baseado no título e descrição \n"
-        "━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "**Instruções:**\n\n"
-        "/New - Mudar contexto da conversa\n"
-        "/Help - Obter ajuda\n"
-        "━━━━━━━━━━━━━━━━━━━━━━━"
-    )
+
+# Handlers do bot
+@bot.message_handler(commands=['start'])
+def handle_start(message):
+    menu.send_menu_message(bot, message.chat.id)
+
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+    message.processar_mensagem_padrao(bot, message)
+
+@bot.message_handler(content_types=['photo'])
+def handle_photo_message(message):
+    photo.handle_photo(bot, message)
   
-    # Criação do botão "falar com ayla"
-    keyboard = InlineKeyboardMarkup()
-    button = InlineKeyboardButton("Falar com Ayla", callback_data="talk_to_ayla")
-    keyboard.add(button)
-
-    bot.send_message(chat_id, menu_message, reply_markup=keyboard, parse_mode="Markdown")
-
-    # Função para lidar com callbacks dos botões
 @bot.callback_query_handler(func=lambda call: True)
 def handle_callback_query(call):
     if call.data == "talk_to_ayla":
@@ -46,9 +33,17 @@ def handle_callback_query(call):
         }
         result = processar_mensagem_padrao(user_input)
         bot.send_message(call.message.chat.id, result)
-        
-        
-    #  Função para lidar com mensagens de texto
-@bot.message_handler(commands=['start'])
-def handle_start(message):
-    send_menu_message(message.chat.id)
+
+
+    #Função para iniciar o bot
+def start_bot():
+    bot.polling()
+
+# Inicia o bot
+start_bot()
+
+# Inicia o bot
+#start_bot()
+
+# Expor a função para o Gunicorn
+#app = start_bot
