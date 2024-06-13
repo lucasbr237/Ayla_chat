@@ -35,15 +35,8 @@ def handle_callback_query(call):
         bot.send_message(call.message.chat.id, result)
 
 
-    #Função para iniciar o bot
-def start_bot():
-    bot.polling()
+bot.polling()
 
-# Inicia o bot
-start_bot()
 
-# Inicia o bot
-#start_bot()
-
-# Expor a função para o Gunicorn
-#app = start_bot
+# Exponha a função para o Gunicorn
+app = handle_message
