@@ -37,4 +37,4 @@ def handle_callback_query(call):
 
 bot.polling()
 # Exponha a função para o Gunicorn
-app = handle_message
+app = processar_mensagem_padrao
