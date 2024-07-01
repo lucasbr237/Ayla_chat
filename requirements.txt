@@ -3,3 +3,5 @@ google-api-python-client
 gradio_client
 requests
 gunicorn
+requests
+colorama
