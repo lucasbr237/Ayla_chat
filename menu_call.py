@@ -10,22 +10,16 @@ from msg2 import processar_mensagem_padrao
 
 def send_menu_message(chat_id):
     menu_message = (
-        "\n━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "🧾 **Atualização: 27-05-2024**\n\n"
-        "**Novidades:**\n\n"
-        "📖 **Comportamento aprimorado**\n"
-        "   - Respostas mais precisas e naturais\n\n"
-        "🚀 **Resposta de API mais rápida**\n"
-        "   - Menor tempo de resposta\n\n"
-        "🖼️ **Capacidade de descrever imagens**\n"
-        "   - Descrições de imagens enviadas\n\n"
-        "▶️ **Capacidade de resumir vídeos do YouTube**\n"
-        "   - Baseado no título e descrição \n"
-        "━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "**Instruções:**\n\n"
-        "/New - Mudar contexto da conversa\n"
-        "/Help - Obter ajuda\n"
-        "━━━━━━━━━━━━━━━━━━━━━━━"
+        "\n🔥IA Hamster Kombat\n\n"
+        "Funcionalidades:\n\n"
+        "🐹 Informações precisas sobre o jogo\n"
+        "🔥 Dicas e estratégias\n"
+        "📝 Lembrete a cada 3 horas\n"
+        "📊 Sumários de upgrades mais fáceis de entender\n\n"
+        "Instruções:\n\n"
+        "/Start - Pergunte-me sobre o Hamster Kombat\n"
+        "/Cifra - Obtenha cifra diária de hoje\n"
+        "/Jogue - Inicie uma nova partida\n"
     )
   
     # Criação do botão "falar com ayla"
